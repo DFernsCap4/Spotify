@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New song{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="{{ request.form['title'] }}" required>
+    <label for="artist">artist</label>
+    <input type="text" name="artist" id="artist" required>
+    <label for="Album">Album</label>
+    <input type="text" name="album" id="album" required>
+    <label for="url">Url</label>
+    <input type="text" name="url" id="url" required>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

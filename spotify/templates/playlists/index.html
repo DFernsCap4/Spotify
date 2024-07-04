@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %} Songs {% endblock%} </h1>
+    {% if g.user %}
+        <a href="Create Playlist">Add Playlist</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+    <h2>Playlists</h2>
+    {% for playlist in playlists %}
+    <article>
+        <a href="{{ url_for('playlists.details', id=playlist['id']) }}">{{playlist['name']}}</a>
+    </article>
+    {% if not loop.last %}
+        <hr>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h2>Playlists</h2>
+    {% for song in playlistsongs %}
+    <article>
+        <p>{{ song.title }}</p>
+        <p>{{ song.artist }}</p>
+        <iframe src="{{ song.url }}" frameborder="0"></iframe>
+    </article>
+    {% if not loop.last %}
+        <hr>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
